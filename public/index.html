@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LLM Chat App</title>
+    <title>🐱 喵喵AI助手</title>
     <style>
-      :root {
-        --primary-color: #f6821f;
-        --primary-hover: #e67e22;
-        --light-bg: #f9fafb;
-        --border-color: #e5e7eb;
+        :root {
+        --primary-color: #ff6b35;     /* 橙猫色 */
+        --primary-hover: #e55a2b;
+        --light-bg: #fffbf7;          /* 温暖背景 */
+        --border-color: #fed7aa;      /* 温暖边框 */
         --text-color: #1f2937;
         --text-light: #6b7280;
-        --user-msg-bg: #fff2e6;
-        --assistant-msg-bg: #f3f4f6;
+        --user-msg-bg: #fff4e6;       /* 用户消息背景 */
+        --assistant-msg-bg: #f0f9ff;  /* AI消息背景 */
       }
 
       * {
@@ -138,37 +138,36 @@
   </head>
   <body>
     <header>
-      <h1>Cloudflare AI Chat</h1>
-      <p>Powered by Cloudflare Workers AI</p>
+      <h1>>你的贴心猫咪AI伙伴 🐾</h1>
+      <p>喵~ 智能对话，温暖陪伴</p>
     </header>
 
     <div class="chat-container">
       <div id="chat-messages" class="chat-messages">
         <div class="message assistant-message">
           <p>
-            Hello! I'm an LLM chat app powered by Cloudflare Workers AI. How can
-            I help you today?
+           🐾 你好呀！我是一只会聊天的小猫咪，快来和我玩耍吧！
           </p>
         </div>
       </div>
 
       <div class="typing-indicator" id="typing-indicator">
-        AI is thinking...
+        小猫正在思考中... 🤔
       </div>
 
       <div class="message-input">
         <textarea
           id="user-input"
-          placeholder="Type your message here..."
+          placeholder="和小猫说点什么吧... 🐾"
           rows="1"
           autofocus
         ></textarea>
-        <button id="send-button">Send</button>
+        <button id="send-button">发送 📤</button>
       </div>
     </div>
 
     <footer>
-      <p>Cloudflare Workers AI Chat Template &copy; 2025</p>
+      <p>🐱 喵喵AI助手 - 温暖陪伴每一天 &copy; 2025 🐾</p>
     </footer>
 
     <!-- Chat app script -->
