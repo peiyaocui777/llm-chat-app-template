@@ -1,153 +1,199 @@
-# LLM Chat Application Template
+# 🐱 喵喵AI聊天应用模板
 
-A simple, ready-to-deploy chat application template powered by Cloudflare Workers AI. This template provides a clean starting point for building AI chat applications with streaming responses.
+一个基于 Cloudflare Workers AI 的简单易部署聊天应用模板。该模板为构建具有流式响应的AI聊天应用提供了一个干净的起点。
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/llm-chat-app-template)
+[![部署到 Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/llm-chat-app-template)
 
 <!-- dash-content-start -->
 
-## Demo
+## 演示
 
-This template demonstrates how to build an AI-powered chat interface using Cloudflare Workers AI with streaming responses. It features:
+该模板展示了如何使用 Cloudflare Workers AI 构建具有流式响应的AI聊天界面。功能包括：
 
-- Real-time streaming of AI responses using Server-Sent Events (SSE)
-- Easy customization of models and system prompts
-- Support for AI Gateway integration
-- Clean, responsive UI that works on mobile and desktop
+- 使用服务器发送事件 (SSE) 实时流式传输AI响应
+- 轻松自定义模型和系统提示
+- 支持 AI Gateway 集成
+- 简洁响应式UI，兼容移动端和桌面端
 
-## Features
+## 特性
 
-- 💬 Simple and responsive chat interface
-- ⚡ Server-Sent Events (SSE) for streaming responses
-- 🧠 Powered by Cloudflare Workers AI LLMs
-- 🛠️ Built with TypeScript and Cloudflare Workers
-- 📱 Mobile-friendly design
-- 🔄 Maintains chat history on the client
-- 🔎 Built-in Observability logging
+- 💬 简洁响应式聊天界面
+- ⚡ 服务器发送事件 (SSE) 流式响应
+- 🧠 由 Cloudflare Workers AI 大语言模型驱动
+- 🛠️ 使用 TypeScript 和 Cloudflare Workers 构建
+- 📱 移动端友好设计
+- 🔄 在客户端维护聊天历史
+- 🔎 内置可观测性日志
 <!-- dash-content-end -->
 
-## Getting Started
+## 快速开始
 
-### Prerequisites
+### 前置条件
 
-- [Node.js](https://nodejs.org/) (v18 or newer)
+- [Node.js](https://nodejs.org/) (v18 或更新版本)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
-- A Cloudflare account with Workers AI access
+- 拥有 Workers AI 访问权限的 Cloudflare 账户
 
-### Installation
+### 安装
 
-1. Clone this repository:
+1. 克隆此仓库：
 
    ```bash
    git clone https://github.com/cloudflare/templates.git
    cd templates/llm-chat-app
    ```
 
-2. Install dependencies:
+2. 安装依赖：
 
    ```bash
    npm install
    ```
 
-3. Generate Worker type definitions:
+3. 生成 Worker 类型定义：
    ```bash
    npm run cf-typegen
    ```
 
-### Development
+### 开发
 
-Start a local development server:
+启动本地开发服务器：
 
 ```bash
 npm run dev
 ```
 
-This will start a local server at http://localhost:8787.
+这将在 http://localhost:8787 启动本地服务器。
 
-Note: Using Workers AI accesses your Cloudflare account even during local development, which will incur usage charges.
+注意：使用 Workers AI 即使在本地开发时也会访问您的 Cloudflare 账户，这将产生使用费用。
 
-### Deployment
+### 部署
 
-Deploy to Cloudflare Workers:
+部署到 Cloudflare Workers：
 
 ```bash
 npm run deploy
 ```
 
-### Monitor
+### 监控
 
-View real-time logs associated with any deployed Worker:
+查看与任何已部署 Worker 相关的实时日志：
 
 ```bash
 npm wrangler tail
 ```
 
-## Project Structure
+## 项目结构
 
 ```
 /
-├── public/             # Static assets
-│   ├── index.html      # Chat UI HTML
-│   └── chat.js         # Chat UI frontend script
+├── public/             # 静态资源
+│   ├── index.html      # 聊天UI HTML文件
+│   └── chat.js         # 聊天UI前端脚本
 ├── src/
-│   ├── index.ts        # Main Worker entry point
-│   └── types.ts        # TypeScript type definitions
-├── test/               # Test files
-├── wrangler.jsonc      # Cloudflare Worker configuration
-├── tsconfig.json       # TypeScript configuration
-└── README.md           # This documentation
+│   ├── index.ts        # 主要 Worker 入口点
+│   └── types.ts        # TypeScript 类型定义
+├── test/               # 测试文件
+├── wrangler.jsonc      # Cloudflare Worker 配置
+├── tsconfig.json       # TypeScript 配置
+└── README.md           # 本文档
 ```
 
-## How It Works
+## 工作原理
 
-### Backend
+### 后端
 
-The backend is built with Cloudflare Workers and uses the Workers AI platform to generate responses. The main components are:
+后端使用 Cloudflare Workers 构建，并使用 Workers AI 平台生成响应。主要组件包括：
 
-1. **API Endpoint** (`/api/chat`): Accepts POST requests with chat messages and streams responses
-2. **Streaming**: Uses Server-Sent Events (SSE) for real-time streaming of AI responses
-3. **Workers AI Binding**: Connects to Cloudflare's AI service via the Workers AI binding
+1. **API 端点** (`/api/chat`)：接受包含聊天消息的 POST 请求并流式传输响应
+2. **流式传输**：使用服务器发送事件 (SSE) 实时流式传输AI响应
+3. **Workers AI 绑定**：通过 Workers AI 绑定连接到 Cloudflare 的AI服务
 
-### Frontend
+### 前端
 
-The frontend is a simple HTML/CSS/JavaScript application that:
+前端是一个简单的 HTML/CSS/JavaScript 应用程序，它：
 
-1. Presents a chat interface
-2. Sends user messages to the API
-3. Processes streaming responses in real-time
-4. Maintains chat history on the client side
+1. 提供聊天界面
+2. 将用户消息发送到API
+3. 实时处理流式响应
+4. 在客户端维护聊天历史
 
-## Customization
+## 自定义
 
-### Changing the Model
+### 更改模型
 
-To use a different AI model, update the `MODEL_ID` constant in `src/index.ts`. You can find available models in the [Cloudflare Workers AI documentation](https://developers.cloudflare.com/workers-ai/models/).
+要使用不同的AI模型，请更新 `src/index.ts` 中的 `MODEL_ID` 常量。您可以在 [Cloudflare Workers AI 文档](https://developers.cloudflare.com/workers-ai/models/) 中找到可用模型。
 
-### Using AI Gateway
+### 使用 AI Gateway
 
-The template includes commented code for AI Gateway integration, which provides additional capabilities like rate limiting, caching, and analytics.
+模板包含用于 AI Gateway 集成的注释代码，它提供了额外的功能，如速率限制、缓存和分析。
 
-To enable AI Gateway:
+要启用 AI Gateway：
 
-1. [Create an AI Gateway](https://dash.cloudflare.com/?to=/:account/ai/ai-gateway) in your Cloudflare dashboard
-2. Uncomment the gateway configuration in `src/index.ts`
-3. Replace `YOUR_GATEWAY_ID` with your actual AI Gateway ID
-4. Configure other gateway options as needed:
-   - `skipCache`: Set to `true` to bypass gateway caching
-   - `cacheTtl`: Set the cache time-to-live in seconds
+1. 在您的 Cloudflare 控制面板中[创建 AI Gateway](https://dash.cloudflare.com/?to=/:account/ai/ai-gateway)
+2. 取消注释 `src/index.ts` 中的网关配置
+3. 将 `YOUR_GATEWAY_ID` 替换为您实际的 AI Gateway ID
+4. 根据需要配置其他网关选项：
+   - `skipCache`：设置为 `true` 以绕过网关缓存
+   - `cacheTtl`：设置缓存生存时间（秒）
 
-Learn more about [AI Gateway](https://developers.cloudflare.com/ai-gateway/).
+了解更多关于 [AI Gateway](https://developers.cloudflare.com/ai-gateway/) 的信息。
 
-### Modifying the System Prompt
+### 修改系统提示
 
-The default system prompt can be changed by updating the `SYSTEM_PROMPT` constant in `src/index.ts`.
+可以通过更新 `src/index.ts` 中的 `SYSTEM_PROMPT` 常量来更改默认系统提示。
 
-### Styling
+### 样式
 
-The UI styling is contained in the `<style>` section of `public/index.html`. You can modify the CSS variables at the top to quickly change the color scheme.
+UI 样式包含在 `public/index.html` 的 `<style>` 部分中。您可以修改顶部的 CSS 变量来快速更改配色方案。
 
-## Resources
+## 🐱 猫咪主题自定义
 
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Cloudflare Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)
-- [Workers AI Models](https://developers.cloudflare.com/workers-ai/models/)
+### 修改为猫咪主题
+
+1. **更新 `public/index.html`**：
+   ```html
+   <title>🐱 喵喵AI助手</title>
+   <h1>🐱 喵喵AI助手</h1>
+   <p>你的贴心猫咪AI伙伴 🐾</p>
+   ```
+
+2. **更新系统提示** (`src/index.ts`)：
+   ```typescript
+   const SYSTEM_PROMPT = "你是一只可爱的猫咪AI助手，名叫小喵。你的性格温柔、友善、有点调皮。在回答问题时，偶尔会用'喵~'来表达，但不要过度使用。";
+   ```
+
+3. **猫咪主题配色**：
+   ```css
+   :root {
+     --primary-color: #ff6b35;     /* 橙猫色 */
+     --primary-hover: #e55a2b;
+     --user-msg-bg: #fff4e6;       /* 温暖奶茶色 */
+     --assistant-msg-bg: #f0f9ff;  /* 浅蓝色 */
+   }
+   ```
+
+## 资源
+
+- [Cloudflare Workers 文档](https://developers.cloudflare.com/workers/)
+- [Cloudflare Workers AI 文档](https://developers.cloudflare.com/workers-ai/)
+- [Workers AI 模型](https://developers.cloudflare.com/workers-ai/models/)
+
+## 部署命令
+
+```bash
+# 安装依赖
+npm install
+
+# 本地开发
+npm run dev
+
+# 部署到生产环境
+npm run deploy
+
+# 查看实时日志
+npm run tail
+```
+
+---
+
+🐾 **现在你有了一个完整的中文猫咪主题AI聊天应用！** 🐱
