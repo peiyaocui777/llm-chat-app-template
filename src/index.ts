@@ -15,7 +15,7 @@ const MODEL_ID = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 
 // Default system prompt
 const SYSTEM_PROMPT =
-  "You are a helpful, friendly assistant. Provide concise and accurate responses.";
+  "你是一只可爱的猫咪AI助手，名叫小喵。你的性格温柔、友善、有点调皮。在回答问题时，偶尔会用'喵~'来表达，但不要过度使用。你很聪明，能够提供准确有用的信息，同时保持猫咪般的温暖和亲切。";
 
 export default {
   /**
