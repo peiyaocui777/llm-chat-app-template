@@ -12,6 +12,13 @@ export interface Env {
    * Binding for static assets.
    */
   ASSETS: { fetch: (request: Request) => Promise<Response> };
+
+  /**
+   * Environment variables for AI Gateway configuration
+   */
+  GATEWAY_ID?: string;
+  ACCOUNT_ID?: string;
+  API_TOKEN?: string;
 }
 
 /**

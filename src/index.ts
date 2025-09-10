@@ -73,13 +73,13 @@ async function handleChatRequest(
         messages,
         max_tokens: 1024,
       },
-     {
+      {
         returnRawResponse: true,
-        // 启用 AI Gateway
+        // 使用 AI Gateway
         gateway: {
-          id: "api-catlove",        // 你的 Gateway ID
-          skipCache: true,         // 启用缓存
-          cacheTtl: 3600,          // 缓存1小时
+          id: env.GATEWAY_ID,  // 从环境变量获取，fallback 到默认值
+          skipCache: false,                      // 启用缓存
+          cacheTtl: 3600,                       // 缓存1小时
         },
       },
     );
